@@ -1,0 +1,1240 @@
+g++ -std=c++11 -g -fPIC -c rsJson.cpp  -o obeject/rsJson.o
+g++ -std=c++11 -g -fPIC  -c error.cpp  -o obeject/error.o 
+g++ -std=c++11 -g -fPIC  -c config.cpp -o obeject/config.o
+g++ -std=c++11 -g -fPIC -c log.cpp  -o obeject/log.o
+g++ -std=c++11 -g -fPIC -c obDb.cpp  -o obeject/obDb.o
+g++ -std=c++11 -g -fPIC -c table.cpp -o obeject/table.o
+g++ -std=c++11 -g -fPIC -c tbUserInfo.cpp -o obeject/tbUserInfo.o
+g++ -std=c++11 -g -fPIC -c toolFun.cpp -o obeject/toolFun.o
+g++ -std=c++11 -g -fPIC -c uiFunc.cpp  -o obeject/uiFunc.o 
+g++ -std=c++11 -g -fPIC -c uiFuncSys.cpp  -o obeject/uiFuncSys.o
+g++ -std=c++11 -g -fPIC -c main.cpp  -o obeject/main.o
+g++ -std=c++11 -g obeject/*.o `mysql_config --cflags --libs` -llog4cpp -lpthread -ljansson -fPIC -shared  -o obeject/libui.so 
+cp obeject/libui.so  /port_forward/code/node/lib/
+server running at port 20010
+收到请求！
+请求体： false
+method POST
+url /cfunc?funcName=Login
+path /cfunc
+query [Object: null prototype] { funcName: 'Login' }
+bodyJson { Phone: '13957974439', Passwd: 'test' }
+----------------------------
+query [Object: null prototype] { funcName: 'Login' }
+bodyJson { Phone: '13957974439', Passwd: 'test' }
+funcName Login
+----------------------------
+进入--ExecUI***********************************************************************************************************
+进入Login
+退出--ExecUI***********************************************************************************************************
+-------------outJson----------------
+{ Status: { StatusCode: 0, Msg2Client: '成功' },
+  Data: { Id: 10001045 } }
+---------------------------------
+收到请求！
+请求体： false
+method POST
+url /cfunc?funcName=GetUserBalance
+path /cfunc
+query [Object: null prototype] { funcName: 'GetUserBalance' }
+bodyJson { UserId: '10001045' }
+----------------------------
+query [Object: null prototype] { funcName: 'GetUserBalance' }
+bodyJson { UserId: '10001045' }
+funcName GetUserBalance
+----------------------------
+进入--ExecUI***********************************************************************************************************
+进入GetUserBalance
+退出--ExecUI***********************************************************************************************************
+-------------outJson----------------
+{ Status: { StatusCode: 0, Msg2Client: '成功' },
+  Data: { Balance: 10359 } }
+---------------------------------
+收到请求！
+请求体： false
+method POST
+url /cfunc?funcName=GetResStatus
+path /cfunc
+query [Object: null prototype] { funcName: 'GetResStatus' }
+bodyJson { UserId: '10001045' }
+----------------------------
+query [Object: null prototype] { funcName: 'GetResStatus' }
+bodyJson { UserId: '10001045' }
+funcName GetResStatus
+----------------------------
+进入--ExecUI***********************************************************************************************************
+进入GetResUnitPrice
+退出--ExecUI***********************************************************************************************************
+-------------outJson----------------
+{ Status: { StatusCode: 0, Msg2Client: '成功' },
+  Data: { Total: 7, Use: 1 } }
+---------------------------------
+收到请求！
+请求体： false
+method POST
+url /cfunc?funcName=GetResUnitPrice
+path /cfunc
+query [Object: null prototype] { funcName: 'GetResUnitPrice' }
+bodyJson {}
+----------------------------
+query [Object: null prototype] { funcName: 'GetResUnitPrice' }
+bodyJson {}
+funcName GetResUnitPrice
+----------------------------
+进入--ExecUI***********************************************************************************************************
+进入GetResUnitPrice
+退出--ExecUI***********************************************************************************************************
+-------------outJson----------------
+{ Status: { StatusCode: 0, Msg2Client: '成功' },
+  Data: { PortUnitPrice: 10 } }
+---------------------------------
+收到请求！
+请求体： false
+method POST
+url /cfunc?funcName=GetPortForward
+path /cfunc
+query [Object: null prototype] { funcName: 'GetPortForward' }
+bodyJson { UserId: 10001045 }
+----------------------------
+query [Object: null prototype] { funcName: 'GetPortForward' }
+bodyJson { UserId: 10001045 }
+funcName GetPortForward
+----------------------------
+进入--ExecUI***********************************************************************************************************
+{
+    "UserId": 10001045
+}退出--ExecUI***********************************************************************************************************
+-------------outJson----------------
+{ Status: { StatusCode: 0, Msg2Client: '成功' },
+  Data:
+   [ { Id: 21,
+       Name: '映射名1',
+       IntranetAddress: '127.0.0.1:20010',
+       CreateTime: 1683210062,
+       ExternalNetworkAddress: '192.168.32.130:20001',
+       ExternalProgramAdPort: '192.168.32.130:20000',
+       EndTime: 1683183459,
+       Money: 10,
+       BillId: 10000023,
+       Status: 0 },
+     { Id: 22,
+       Name: '映射名称',
+       IntranetAddress: '0.0.0.0:20001',
+       CreateTime: 1683192439,
+       ExternalNetworkAddress: '192.168.32.130:20001',
+       ExternalProgramAdPort: '192.168.32.130:20000',
+       EndTime: 1683204005,
+       Money: 10,
+       BillId: 10000024,
+       Status: 1 },
+     { Id: 23,
+       Name: '映射名称',
+       IntranetAddress: '123.123.123.123:20001',
+       CreateTime: 1683192338,
+       ExternalNetworkAddress: '192.168.32.130:20003',
+       ExternalProgramAdPort: '192.168.32.130:20002',
+       EndTime: 1683204382,
+       Money: 10,
+       BillId: 10000025,
+       Status: 1 },
+     { Id: 25,
+       Name: '映射名称',
+       IntranetAddress: 'ip地址:端口',
+       CreateTime: 1683128613,
+       ExternalNetworkAddress: 'ip地址:端口',
+       ExternalProgramAdPort: 'ip地址:端口',
+       EndTime: 1683215013,
+       Money: 10,
+       BillId: 10000027,
+       Status: -1 },
+     { Id: 26,
+       Name: '映射名称',
+       IntranetAddress: 'ip地址:端口',
+       CreateTime: 1683177444,
+       ExternalNetworkAddress: 'ip地址:端口',
+       ExternalProgramAdPort: 'ip地址:端口',
+       EndTime: 1683263844,
+       Money: 10,
+       BillId: 10000028,
+       Status: -1 },
+     { Id: 27,
+       Name: '映射名称',
+       IntranetAddress: 'ip地址:端口',
+       CreateTime: 1683177444,
+       ExternalNetworkAddress: 'ip地址:端口',
+       ExternalProgramAdPort: 'ip地址:端口',
+       EndTime: 1683263844,
+       Money: 10,
+       BillId: 10000028,
+       Status: -1 },
+     { Id: 28,
+       Name: '映射名称',
+       IntranetAddress: 'ip地址:端口',
+       CreateTime: 1683190609,
+       ExternalNetworkAddress: '192.168.32.130:20003',
+       ExternalProgramAdPort: '192.168.32.130:20002',
+       EndTime: 1683263844,
+       Money: 10,
+       BillId: 10000028,
+       Status: 1 } ] }
+---------------------------------
+收到请求！
+请求体： false
+method POST
+url /cfunc?funcName=Login
+path /cfunc
+query [Object: null prototype] { funcName: 'Login' }
+bodyJson { Phone: '13957974439', Passwd: 'test' }
+----------------------------
+query [Object: null prototype] { funcName: 'Login' }
+bodyJson { Phone: '13957974439', Passwd: 'test' }
+funcName Login
+----------------------------
+进入--ExecUI***********************************************************************************************************
+进入Login
+退出--ExecUI***********************************************************************************************************
+-------------outJson----------------
+{ Status: { StatusCode: 0, Msg2Client: '成功' },
+  Data: { Id: 10001045 } }
+---------------------------------
+收到请求！
+请求体： false
+method POST
+url /cfunc?funcName=GetUserBalance
+path /cfunc
+query [Object: null prototype] { funcName: 'GetUserBalance' }
+bodyJson { UserId: '10001045' }
+----------------------------
+query [Object: null prototype] { funcName: 'GetUserBalance' }
+bodyJson { UserId: '10001045' }
+funcName GetUserBalance
+----------------------------
+进入--ExecUI***********************************************************************************************************
+进入GetUserBalance
+退出--ExecUI***********************************************************************************************************
+-------------outJson----------------
+{ Status: { StatusCode: 0, Msg2Client: '成功' },
+  Data: { Balance: 10359 } }
+---------------------------------
+收到请求！
+请求体： false
+method POST
+url /cfunc?funcName=GetResUnitPrice
+path /cfunc
+query [Object: null prototype] { funcName: 'GetResUnitPrice' }
+bodyJson {}
+----------------------------
+query [Object: null prototype] { funcName: 'GetResUnitPrice' }
+bodyJson {}
+funcName GetResUnitPrice
+----------------------------
+进入--ExecUI***********************************************************************************************************
+进入GetResUnitPrice
+退出--ExecUI***********************************************************************************************************
+-------------outJson----------------
+{ Status: { StatusCode: 0, Msg2Client: '成功' },
+  Data: { PortUnitPrice: 10 } }
+---------------------------------
+收到请求！
+请求体： false
+method POST
+url /cfunc?funcName=GetResStatus
+path /cfunc
+query [Object: null prototype] { funcName: 'GetResStatus' }
+bodyJson { UserId: '10001045' }
+----------------------------
+query [Object: null prototype] { funcName: 'GetResStatus' }
+bodyJson { UserId: '10001045' }
+funcName GetResStatus
+----------------------------
+进入--ExecUI***********************************************************************************************************
+进入GetResUnitPrice
+退出--ExecUI***********************************************************************************************************
+-------------outJson----------------
+{ Status: { StatusCode: 0, Msg2Client: '成功' },
+  Data: { Total: 7, Use: 1 } }
+---------------------------------
+收到请求！
+请求体： false
+method POST
+url /cfunc?funcName=GetPortForward
+path /cfunc
+query [Object: null prototype] { funcName: 'GetPortForward' }
+bodyJson { UserId: 10001045 }
+----------------------------
+query [Object: null prototype] { funcName: 'GetPortForward' }
+bodyJson { UserId: 10001045 }
+funcName GetPortForward
+----------------------------
+进入--ExecUI***********************************************************************************************************
+{
+    "UserId": 10001045
+}退出--ExecUI***********************************************************************************************************
+-------------outJson----------------
+{ Status: { StatusCode: 0, Msg2Client: '成功' },
+  Data:
+   [ { Id: 21,
+       Name: '映射名1',
+       IntranetAddress: '127.0.0.1:20010',
+       CreateTime: 1683210062,
+       ExternalNetworkAddress: '192.168.32.130:20001',
+       ExternalProgramAdPort: '192.168.32.130:20000',
+       EndTime: 1683183459,
+       Money: 10,
+       BillId: 10000023,
+       Status: 0 },
+     { Id: 22,
+       Name: '映射名称',
+       IntranetAddress: '0.0.0.0:20001',
+       CreateTime: 1683192439,
+       ExternalNetworkAddress: '192.168.32.130:20001',
+       ExternalProgramAdPort: '192.168.32.130:20000',
+       EndTime: 1683204005,
+       Money: 10,
+       BillId: 10000024,
+       Status: 1 },
+     { Id: 23,
+       Name: '映射名称',
+       IntranetAddress: '123.123.123.123:20001',
+       CreateTime: 1683192338,
+       ExternalNetworkAddress: '192.168.32.130:20003',
+       ExternalProgramAdPort: '192.168.32.130:20002',
+       EndTime: 1683204382,
+       Money: 10,
+       BillId: 10000025,
+       Status: 1 },
+     { Id: 25,
+       Name: '映射名称',
+       IntranetAddress: 'ip地址:端口',
+       CreateTime: 1683128613,
+       ExternalNetworkAddress: 'ip地址:端口',
+       ExternalProgramAdPort: 'ip地址:端口',
+       EndTime: 1683215013,
+       Money: 10,
+       BillId: 10000027,
+       Status: -1 },
+     { Id: 26,
+       Name: '映射名称',
+       IntranetAddress: 'ip地址:端口',
+       CreateTime: 1683177444,
+       ExternalNetworkAddress: 'ip地址:端口',
+       ExternalProgramAdPort: 'ip地址:端口',
+       EndTime: 1683263844,
+       Money: 10,
+       BillId: 10000028,
+       Status: -1 },
+     { Id: 27,
+       Name: '映射名称',
+       IntranetAddress: 'ip地址:端口',
+       CreateTime: 1683177444,
+       ExternalNetworkAddress: 'ip地址:端口',
+       ExternalProgramAdPort: 'ip地址:端口',
+       EndTime: 1683263844,
+       Money: 10,
+       BillId: 10000028,
+       Status: -1 },
+     { Id: 28,
+       Name: '映射名称',
+       IntranetAddress: 'ip地址:端口',
+       CreateTime: 1683190609,
+       ExternalNetworkAddress: '192.168.32.130:20003',
+       ExternalProgramAdPort: '192.168.32.130:20002',
+       EndTime: 1683263844,
+       Money: 10,
+       BillId: 10000028,
+       Status: 1 } ] }
+---------------------------------
+收到请求！
+请求体： false
+method POST
+url /cfunc?funcName=Login
+path /cfunc
+query [Object: null prototype] { funcName: 'Login' }
+bodyJson { Phone: '13957974439', Passwd: 'test' }
+----------------------------
+query [Object: null prototype] { funcName: 'Login' }
+bodyJson { Phone: '13957974439', Passwd: 'test' }
+funcName Login
+----------------------------
+进入--ExecUI***********************************************************************************************************
+进入Login
+退出--ExecUI***********************************************************************************************************
+-------------outJson----------------
+{ Status: { StatusCode: 0, Msg2Client: '成功' },
+  Data: { Id: 10001045 } }
+---------------------------------
+收到请求！
+请求体： false
+method POST
+url /cfunc?funcName=GetUserBalance
+path /cfunc
+query [Object: null prototype] { funcName: 'GetUserBalance' }
+bodyJson { UserId: '10001045' }
+----------------------------
+query [Object: null prototype] { funcName: 'GetUserBalance' }
+bodyJson { UserId: '10001045' }
+funcName GetUserBalance
+----------------------------
+进入--ExecUI***********************************************************************************************************
+进入GetUserBalance
+退出--ExecUI***********************************************************************************************************
+-------------outJson----------------
+{ Status: { StatusCode: 0, Msg2Client: '成功' },
+  Data: { Balance: 10359 } }
+---------------------------------
+收到请求！
+请求体： false
+method POST
+url /cfunc?funcName=GetResUnitPrice
+path /cfunc
+query [Object: null prototype] { funcName: 'GetResUnitPrice' }
+bodyJson {}
+----------------------------
+query [Object: null prototype] { funcName: 'GetResUnitPrice' }
+bodyJson {}
+funcName GetResUnitPrice
+----------------------------
+进入--ExecUI***********************************************************************************************************
+进入GetResUnitPrice
+退出--ExecUI***********************************************************************************************************
+-------------outJson----------------
+{ Status: { StatusCode: 0, Msg2Client: '成功' },
+  Data: { PortUnitPrice: 10 } }
+---------------------------------
+收到请求！
+请求体： false
+method POST
+url /cfunc?funcName=GetResStatus
+path /cfunc
+query [Object: null prototype] { funcName: 'GetResStatus' }
+bodyJson { UserId: '10001045' }
+----------------------------
+query [Object: null prototype] { funcName: 'GetResStatus' }
+bodyJson { UserId: '10001045' }
+funcName GetResStatus
+----------------------------
+进入--ExecUI***********************************************************************************************************
+进入GetResUnitPrice
+退出--ExecUI***********************************************************************************************************
+-------------outJson----------------
+{ Status: { StatusCode: 0, Msg2Client: '成功' },
+  Data: { Total: 7, Use: 1 } }
+---------------------------------
+收到请求！
+请求体： false
+method POST
+url /cfunc?funcName=GetPortForward
+path /cfunc
+query [Object: null prototype] { funcName: 'GetPortForward' }
+bodyJson { UserId: 10001045 }
+----------------------------
+query [Object: null prototype] { funcName: 'GetPortForward' }
+bodyJson { UserId: 10001045 }
+funcName GetPortForward
+----------------------------
+进入--ExecUI***********************************************************************************************************
+{
+    "UserId": 10001045
+}退出--ExecUI***********************************************************************************************************
+-------------outJson----------------
+{ Status: { StatusCode: 0, Msg2Client: '成功' },
+  Data:
+   [ { Id: 21,
+       Name: '映射名1',
+       IntranetAddress: '127.0.0.1:20010',
+       CreateTime: 1683210062,
+       ExternalNetworkAddress: '192.168.32.130:20001',
+       ExternalProgramAdPort: '192.168.32.130:20000',
+       EndTime: 1683183459,
+       Money: 10,
+       BillId: 10000023,
+       Status: 0 },
+     { Id: 22,
+       Name: '映射名称',
+       IntranetAddress: '0.0.0.0:20001',
+       CreateTime: 1683192439,
+       ExternalNetworkAddress: '192.168.32.130:20001',
+       ExternalProgramAdPort: '192.168.32.130:20000',
+       EndTime: 1683204005,
+       Money: 10,
+       BillId: 10000024,
+       Status: 1 },
+     { Id: 23,
+       Name: '映射名称',
+       IntranetAddress: '123.123.123.123:20001',
+       CreateTime: 1683192338,
+       ExternalNetworkAddress: '192.168.32.130:20003',
+       ExternalProgramAdPort: '192.168.32.130:20002',
+       EndTime: 1683204382,
+       Money: 10,
+       BillId: 10000025,
+       Status: 1 },
+     { Id: 25,
+       Name: '映射名称',
+       IntranetAddress: 'ip地址:端口',
+       CreateTime: 1683128613,
+       ExternalNetworkAddress: 'ip地址:端口',
+       ExternalProgramAdPort: 'ip地址:端口',
+       EndTime: 1683215013,
+       Money: 10,
+       BillId: 10000027,
+       Status: -1 },
+     { Id: 26,
+       Name: '映射名称',
+       IntranetAddress: 'ip地址:端口',
+       CreateTime: 1683177444,
+       ExternalNetworkAddress: 'ip地址:端口',
+       ExternalProgramAdPort: 'ip地址:端口',
+       EndTime: 1683263844,
+       Money: 10,
+       BillId: 10000028,
+       Status: -1 },
+     { Id: 27,
+       Name: '映射名称',
+       IntranetAddress: 'ip地址:端口',
+       CreateTime: 1683177444,
+       ExternalNetworkAddress: 'ip地址:端口',
+       ExternalProgramAdPort: 'ip地址:端口',
+       EndTime: 1683263844,
+       Money: 10,
+       BillId: 10000028,
+       Status: -1 },
+     { Id: 28,
+       Name: '映射名称',
+       IntranetAddress: 'ip地址:端口',
+       CreateTime: 1683190609,
+       ExternalNetworkAddress: '192.168.32.130:20003',
+       ExternalProgramAdPort: '192.168.32.130:20002',
+       EndTime: 1683263844,
+       Money: 10,
+       BillId: 10000028,
+       Status: 1 } ] }
+---------------------------------
+收到请求！
+请求体： false
+method POST
+url /cfunc?funcName=ClosePortForward
+path /cfunc
+query [Object: null prototype] { funcName: 'ClosePortForward' }
+bodyJson { Id: 21 }
+----------------------------
+query [Object: null prototype] { funcName: 'ClosePortForward' }
+bodyJson { Id: 21 }
+funcName ClosePortForward
+----------------------------
+进入--ExecUI***********************************************************************************************************
+进入DelPortForward
+{
+    "Id": 21
+}退出--ExecUI***********************************************************************************************************
+-------------outJson----------------
+{ Status: { StatusCode: 0, Msg2Client: '成功' } }
+---------------------------------
+收到请求！
+请求体： false
+method POST
+url /cfunc?funcName=ClosePortForward
+path /cfunc
+query [Object: null prototype] { funcName: 'ClosePortForward' }
+bodyJson { Id: 21 }
+----------------------------
+query [Object: null prototype] { funcName: 'ClosePortForward' }
+bodyJson { Id: 21 }
+funcName ClosePortForward
+----------------------------
+进入--ExecUI***********************************************************************************************************
+进入DelPortForward
+{
+    "Id": 21
+}退出--ExecUI***********************************************************************************************************
+-------------outJson----------------
+{ Status: { StatusCode: 0, Msg2Client: '成功' } }
+---------------------------------
+收到请求！
+请求体： false
+method POST
+url /cfunc?funcName=RestartPortForward
+path /cfunc
+query [Object: null prototype] { funcName: 'RestartPortForward' }
+bodyJson { Id: 21 }
+----------------------------
+query [Object: null prototype] { funcName: 'RestartPortForward' }
+bodyJson { Id: 21 }
+funcName RestartPortForward
+----------------------------
+进入--ExecUI***********************************************************************************************************
+port:20001
+port:20002
+退出--ExecUI***********************************************************************************************************
+-------------outJson----------------
+{ Status: { StatusCode: 0, Msg2Client: '成功' },
+  Data:
+   { NetworkAdPort: '192.168.32.130:20002',
+     ProgramAdPort: '192.168.32.130:20001',
+     Id: 21 } }
+---------------------------------
+收到请求！
+请求体： false
+method POST
+url /cfunc?funcName=ClosePortForward
+path /cfunc
+query [Object: null prototype] { funcName: 'ClosePortForward' }
+bodyJson { Id: 21 }
+----------------------------
+query [Object: null prototype] { funcName: 'ClosePortForward' }
+bodyJson { Id: 21 }
+funcName ClosePortForward
+----------------------------
+进入--ExecUI***********************************************************************************************************
+进入DelPortForward
+{
+    "Id": 21
+}退出--ExecUI***********************************************************************************************************
+-------------outJson----------------
+{ Status: { StatusCode: 0, Msg2Client: '成功' } }
+---------------------------------
+收到请求！
+请求体： false
+method POST
+url /cfunc?funcName=Login
+path /cfunc
+query [Object: null prototype] { funcName: 'Login' }
+bodyJson { Phone: '13957974439', Passwd: 'test' }
+----------------------------
+query [Object: null prototype] { funcName: 'Login' }
+bodyJson { Phone: '13957974439', Passwd: 'test' }
+funcName Login
+----------------------------
+进入--ExecUI***********************************************************************************************************
+进入Login
+退出--ExecUI***********************************************************************************************************
+-------------outJson----------------
+{ Status: { StatusCode: 0, Msg2Client: '成功' },
+  Data: { Id: 10001045 } }
+---------------------------------
+收到请求！
+请求体： false
+method POST
+url /cfunc?funcName=GetResUnitPrice
+path /cfunc
+query [Object: null prototype] { funcName: 'GetResUnitPrice' }
+bodyJson {}
+----------------------------
+query [Object: null prototype] { funcName: 'GetResUnitPrice' }
+bodyJson {}
+funcName GetResUnitPrice
+----------------------------
+进入--ExecUI***********************************************************************************************************
+进入GetResUnitPrice
+退出--ExecUI***********************************************************************************************************
+-------------outJson----------------
+{ Status: { StatusCode: 0, Msg2Client: '成功' },
+  Data: { PortUnitPrice: 10 } }
+---------------------------------
+收到请求！
+请求体： false
+method POST
+url /cfunc?funcName=GetUserBalance
+path /cfunc
+query [Object: null prototype] { funcName: 'GetUserBalance' }
+bodyJson { UserId: '10001045' }
+----------------------------
+query [Object: null prototype] { funcName: 'GetUserBalance' }
+bodyJson { UserId: '10001045' }
+funcName GetUserBalance
+----------------------------
+进入--ExecUI***********************************************************************************************************
+进入GetUserBalance
+退出--ExecUI***********************************************************************************************************
+-------------outJson----------------
+{ Status: { StatusCode: 0, Msg2Client: '成功' },
+  Data: { Balance: 10359 } }
+---------------------------------
+收到请求！
+请求体： false
+method POST
+url /cfunc?funcName=GetResStatus
+path /cfunc
+query [Object: null prototype] { funcName: 'GetResStatus' }
+bodyJson { UserId: '10001045' }
+----------------------------
+query [Object: null prototype] { funcName: 'GetResStatus' }
+bodyJson { UserId: '10001045' }
+funcName GetResStatus
+----------------------------
+进入--ExecUI***********************************************************************************************************
+进入GetResUnitPrice
+退出--ExecUI***********************************************************************************************************
+-------------outJson----------------
+{ Status: { StatusCode: 0, Msg2Client: '成功' },
+  Data: { Total: 7, Use: 0 } }
+---------------------------------
+收到请求！
+请求体： false
+method POST
+url /cfunc?funcName=GetPortForward
+path /cfunc
+query [Object: null prototype] { funcName: 'GetPortForward' }
+bodyJson { UserId: 10001045 }
+----------------------------
+query [Object: null prototype] { funcName: 'GetPortForward' }
+bodyJson { UserId: 10001045 }
+funcName GetPortForward
+----------------------------
+进入--ExecUI***********************************************************************************************************
+{
+    "UserId": 10001045
+}退出--ExecUI***********************************************************************************************************
+-------------outJson----------------
+{ Status: { StatusCode: 0, Msg2Client: '成功' },
+  Data:
+   [ { Id: 21,
+       Name: '映射名1',
+       IntranetAddress: '127.0.0.1:20010',
+       CreateTime: 1683391618,
+       ExternalNetworkAddress: '192.168.32.130:20002',
+       ExternalProgramAdPort: '192.168.32.130:20001',
+       EndTime: 1683183459,
+       Money: 10,
+       BillId: 10000023,
+       Status: 1 },
+     { Id: 22,
+       Name: '映射名称',
+       IntranetAddress: '0.0.0.0:20001',
+       CreateTime: 1683192439,
+       ExternalNetworkAddress: '192.168.32.130:20001',
+       ExternalProgramAdPort: '192.168.32.130:20000',
+       EndTime: 1683204005,
+       Money: 10,
+       BillId: 10000024,
+       Status: 1 },
+     { Id: 23,
+       Name: '映射名称',
+       IntranetAddress: '123.123.123.123:20001',
+       CreateTime: 1683192338,
+       ExternalNetworkAddress: '192.168.32.130:20003',
+       ExternalProgramAdPort: '192.168.32.130:20002',
+       EndTime: 1683204382,
+       Money: 10,
+       BillId: 10000025,
+       Status: 1 },
+     { Id: 25,
+       Name: '映射名称',
+       IntranetAddress: 'ip地址:端口',
+       CreateTime: 1683128613,
+       ExternalNetworkAddress: 'ip地址:端口',
+       ExternalProgramAdPort: 'ip地址:端口',
+       EndTime: 1683215013,
+       Money: 10,
+       BillId: 10000027,
+       Status: -1 },
+     { Id: 26,
+       Name: '映射名称',
+       IntranetAddress: 'ip地址:端口',
+       CreateTime: 1683177444,
+       ExternalNetworkAddress: 'ip地址:端口',
+       ExternalProgramAdPort: 'ip地址:端口',
+       EndTime: 1683263844,
+       Money: 10,
+       BillId: 10000028,
+       Status: -1 },
+     { Id: 27,
+       Name: '映射名称',
+       IntranetAddress: 'ip地址:端口',
+       CreateTime: 1683177444,
+       ExternalNetworkAddress: 'ip地址:端口',
+       ExternalProgramAdPort: 'ip地址:端口',
+       EndTime: 1683263844,
+       Money: 10,
+       BillId: 10000028,
+       Status: -1 },
+     { Id: 28,
+       Name: '映射名称',
+       IntranetAddress: 'ip地址:端口',
+       CreateTime: 1683190609,
+       ExternalNetworkAddress: '192.168.32.130:20003',
+       ExternalProgramAdPort: '192.168.32.130:20002',
+       EndTime: 1683263844,
+       Money: 10,
+       BillId: 10000028,
+       Status: 1 } ] }
+---------------------------------
+收到请求！
+请求体： false
+method POST
+url /cfunc?funcName=Login
+path /cfunc
+query [Object: null prototype] { funcName: 'Login' }
+bodyJson { Phone: '13957974439', Passwd: 'test' }
+----------------------------
+query [Object: null prototype] { funcName: 'Login' }
+bodyJson { Phone: '13957974439', Passwd: 'test' }
+funcName Login
+----------------------------
+进入--ExecUI***********************************************************************************************************
+进入Login
+退出--ExecUI***********************************************************************************************************
+-------------outJson----------------
+{ Status: { StatusCode: 0, Msg2Client: '成功' },
+  Data: { Id: 10001045 } }
+---------------------------------
+收到请求！
+请求体： false
+method POST
+url /cfunc?funcName=GetUserBalance
+path /cfunc
+query [Object: null prototype] { funcName: 'GetUserBalance' }
+bodyJson { UserId: '10001045' }
+----------------------------
+query [Object: null prototype] { funcName: 'GetUserBalance' }
+bodyJson { UserId: '10001045' }
+funcName GetUserBalance
+----------------------------
+进入--ExecUI***********************************************************************************************************
+进入GetUserBalance
+退出--ExecUI***********************************************************************************************************
+-------------outJson----------------
+{ Status: { StatusCode: 0, Msg2Client: '成功' },
+  Data: { Balance: 10359 } }
+---------------------------------
+收到请求！
+请求体： false
+method POST
+url /cfunc?funcName=GetResUnitPrice
+path /cfunc
+query [Object: null prototype] { funcName: 'GetResUnitPrice' }
+bodyJson {}
+----------------------------
+query [Object: null prototype] { funcName: 'GetResUnitPrice' }
+bodyJson {}
+funcName GetResUnitPrice
+----------------------------
+进入--ExecUI***********************************************************************************************************
+进入GetResUnitPrice
+退出--ExecUI***********************************************************************************************************
+-------------outJson----------------
+{ Status: { StatusCode: 0, Msg2Client: '成功' },
+  Data: { PortUnitPrice: 10 } }
+---------------------------------
+收到请求！
+请求体： false
+method POST
+url /cfunc?funcName=GetResStatus
+path /cfunc
+query [Object: null prototype] { funcName: 'GetResStatus' }
+bodyJson { UserId: '10001045' }
+----------------------------
+query [Object: null prototype] { funcName: 'GetResStatus' }
+bodyJson { UserId: '10001045' }
+funcName GetResStatus
+----------------------------
+进入--ExecUI***********************************************************************************************************
+进入GetResUnitPrice
+退出--ExecUI***********************************************************************************************************
+-------------outJson----------------
+{ Status: { StatusCode: 0, Msg2Client: '成功' },
+  Data: { Total: 7, Use: 0 } }
+---------------------------------
+收到请求！
+请求体： false
+method POST
+url /cfunc?funcName=GetPortForward
+path /cfunc
+query [Object: null prototype] { funcName: 'GetPortForward' }
+bodyJson { UserId: 10001045 }
+----------------------------
+query [Object: null prototype] { funcName: 'GetPortForward' }
+bodyJson { UserId: 10001045 }
+funcName GetPortForward
+----------------------------
+进入--ExecUI***********************************************************************************************************
+{
+    "UserId": 10001045
+}退出--ExecUI***********************************************************************************************************
+-------------outJson----------------
+{ Status: { StatusCode: 0, Msg2Client: '成功' },
+  Data:
+   [ { Id: 21,
+       Name: '映射名1',
+       IntranetAddress: '127.0.0.1:20010',
+       CreateTime: 1683391618,
+       ExternalNetworkAddress: '192.168.32.130:20002',
+       ExternalProgramAdPort: '192.168.32.130:20001',
+       EndTime: 1683183459,
+       Money: 10,
+       BillId: 10000023,
+       Status: 1 },
+     { Id: 22,
+       Name: '映射名称',
+       IntranetAddress: '0.0.0.0:20001',
+       CreateTime: 1683192439,
+       ExternalNetworkAddress: '192.168.32.130:20001',
+       ExternalProgramAdPort: '192.168.32.130:20000',
+       EndTime: 1683204005,
+       Money: 10,
+       BillId: 10000024,
+       Status: 1 },
+     { Id: 23,
+       Name: '映射名称',
+       IntranetAddress: '123.123.123.123:20001',
+       CreateTime: 1683192338,
+       ExternalNetworkAddress: '192.168.32.130:20003',
+       ExternalProgramAdPort: '192.168.32.130:20002',
+       EndTime: 1683204382,
+       Money: 10,
+       BillId: 10000025,
+       Status: 1 },
+     { Id: 25,
+       Name: '映射名称',
+       IntranetAddress: 'ip地址:端口',
+       CreateTime: 1683128613,
+       ExternalNetworkAddress: 'ip地址:端口',
+       ExternalProgramAdPort: 'ip地址:端口',
+       EndTime: 1683215013,
+       Money: 10,
+       BillId: 10000027,
+       Status: -1 },
+     { Id: 26,
+       Name: '映射名称',
+       IntranetAddress: 'ip地址:端口',
+       CreateTime: 1683177444,
+       ExternalNetworkAddress: 'ip地址:端口',
+       ExternalProgramAdPort: 'ip地址:端口',
+       EndTime: 1683263844,
+       Money: 10,
+       BillId: 10000028,
+       Status: -1 },
+     { Id: 27,
+       Name: '映射名称',
+       IntranetAddress: 'ip地址:端口',
+       CreateTime: 1683177444,
+       ExternalNetworkAddress: 'ip地址:端口',
+       ExternalProgramAdPort: 'ip地址:端口',
+       EndTime: 1683263844,
+       Money: 10,
+       BillId: 10000028,
+       Status: -1 },
+     { Id: 28,
+       Name: '映射名称',
+       IntranetAddress: 'ip地址:端口',
+       CreateTime: 1683190609,
+       ExternalNetworkAddress: '192.168.32.130:20003',
+       ExternalProgramAdPort: '192.168.32.130:20002',
+       EndTime: 1683263844,
+       Money: 10,
+       BillId: 10000028,
+       Status: 1 } ] }
+---------------------------------
+收到请求！
+请求体： false
+method POST
+url /cfunc?funcName=RestartPortForward
+path /cfunc
+query [Object: null prototype] { funcName: 'RestartPortForward' }
+bodyJson { Id: 21 }
+----------------------------
+query [Object: null prototype] { funcName: 'RestartPortForward' }
+bodyJson { Id: 21 }
+funcName RestartPortForward
+----------------------------
+进入--ExecUI***********************************************************************************************************
+port:20000
+port:20001
+退出--ExecUI***********************************************************************************************************
+-------------outJson----------------
+{ Status: { StatusCode: 0, Msg2Client: '成功' },
+  Data:
+   { NetworkAdPort: '192.168.32.130:20001',
+     ProgramAdPort: '192.168.32.130:20000',
+     Id: 21 } }
+---------------------------------
+收到请求！
+请求体： false
+method POST
+url /cfunc?funcName=ClosePortForward
+path /cfunc
+query [Object: null prototype] { funcName: 'ClosePortForward' }
+bodyJson { Id: 21 }
+----------------------------
+query [Object: null prototype] { funcName: 'ClosePortForward' }
+bodyJson { Id: 21 }
+funcName ClosePortForward
+----------------------------
+进入--ExecUI***********************************************************************************************************
+进入DelPortForward
+{
+    "Id": 21
+}退出--ExecUI***********************************************************************************************************
+-------------outJson----------------
+{ Status: { StatusCode: 0, Msg2Client: '成功' } }
+---------------------------------
+收到请求！
+请求体： false
+method POST
+url /cfunc?funcName=Login
+path /cfunc
+query [Object: null prototype] { funcName: 'Login' }
+bodyJson { Phone: '13957974439', Passwd: 'test' }
+----------------------------
+query [Object: null prototype] { funcName: 'Login' }
+bodyJson { Phone: '13957974439', Passwd: 'test' }
+funcName Login
+----------------------------
+进入--ExecUI***********************************************************************************************************
+进入Login
+退出--ExecUI***********************************************************************************************************
+-------------outJson----------------
+{ Status: { StatusCode: 0, Msg2Client: '成功' },
+  Data: { Id: 10001045 } }
+---------------------------------
+收到请求！
+请求体： false
+method POST
+url /cfunc?funcName=GetResUnitPrice
+path /cfunc
+query [Object: null prototype] { funcName: 'GetResUnitPrice' }
+bodyJson {}
+----------------------------
+query [Object: null prototype] { funcName: 'GetResUnitPrice' }
+bodyJson {}
+funcName GetResUnitPrice
+----------------------------
+进入--ExecUI***********************************************************************************************************
+进入GetResUnitPrice
+退出--ExecUI***********************************************************************************************************
+-------------outJson----------------
+{ Status: { StatusCode: 0, Msg2Client: '成功' },
+  Data: { PortUnitPrice: 10 } }
+---------------------------------
+收到请求！
+请求体： false
+method POST
+url /cfunc?funcName=GetUserBalance
+path /cfunc
+query [Object: null prototype] { funcName: 'GetUserBalance' }
+bodyJson { UserId: '10001045' }
+----------------------------
+query [Object: null prototype] { funcName: 'GetUserBalance' }
+bodyJson { UserId: '10001045' }
+funcName GetUserBalance
+----------------------------
+进入--ExecUI***********************************************************************************************************
+进入GetUserBalance
+退出--ExecUI***********************************************************************************************************
+-------------outJson----------------
+{ Status: { StatusCode: 0, Msg2Client: '成功' },
+  Data: { Balance: 10359 } }
+---------------------------------
+收到请求！
+请求体： false
+method POST
+url /cfunc?funcName=GetResStatus
+path /cfunc
+query [Object: null prototype] { funcName: 'GetResStatus' }
+bodyJson { UserId: '10001045' }
+----------------------------
+query [Object: null prototype] { funcName: 'GetResStatus' }
+bodyJson { UserId: '10001045' }
+funcName GetResStatus
+----------------------------
+进入--ExecUI***********************************************************************************************************
+进入GetResUnitPrice
+退出--ExecUI***********************************************************************************************************
+-------------outJson----------------
+{ Status: { StatusCode: 0, Msg2Client: '成功' },
+  Data: { Total: 7, Use: 0 } }
+---------------------------------
+收到请求！
+请求体： false
+method POST
+url /cfunc?funcName=GetPortForward
+path /cfunc
+query [Object: null prototype] { funcName: 'GetPortForward' }
+bodyJson { UserId: 10001045 }
+----------------------------
+query [Object: null prototype] { funcName: 'GetPortForward' }
+bodyJson { UserId: 10001045 }
+funcName GetPortForward
+----------------------------
+进入--ExecUI***********************************************************************************************************
+{
+    "UserId": 10001045
+}退出--ExecUI***********************************************************************************************************
+-------------outJson----------------
+{ Status: { StatusCode: 0, Msg2Client: '成功' },
+  Data:
+   [ { Id: 21,
+       Name: '映射名1',
+       IntranetAddress: '127.0.0.1:20010',
+       CreateTime: 1683421243,
+       ExternalNetworkAddress: '192.168.32.130:20001',
+       ExternalProgramAdPort: '192.168.32.130:20000',
+       EndTime: 1683183459,
+       Money: 10,
+       BillId: 10000023,
+       Status: 1 },
+     { Id: 22,
+       Name: '映射名称',
+       IntranetAddress: '0.0.0.0:20001',
+       CreateTime: 1683192439,
+       ExternalNetworkAddress: '192.168.32.130:20001',
+       ExternalProgramAdPort: '192.168.32.130:20000',
+       EndTime: 1683204005,
+       Money: 10,
+       BillId: 10000024,
+       Status: 1 },
+     { Id: 23,
+       Name: '映射名称',
+       IntranetAddress: '123.123.123.123:20001',
+       CreateTime: 1683192338,
+       ExternalNetworkAddress: '192.168.32.130:20003',
+       ExternalProgramAdPort: '192.168.32.130:20002',
+       EndTime: 1683204382,
+       Money: 10,
+       BillId: 10000025,
+       Status: 1 },
+     { Id: 25,
+       Name: '映射名称',
+       IntranetAddress: 'ip地址:端口',
+       CreateTime: 1683128613,
+       ExternalNetworkAddress: 'ip地址:端口',
+       ExternalProgramAdPort: 'ip地址:端口',
+       EndTime: 1683215013,
+       Money: 10,
+       BillId: 10000027,
+       Status: -1 },
+     { Id: 26,
+       Name: '映射名称',
+       IntranetAddress: 'ip地址:端口',
+       CreateTime: 1683177444,
+       ExternalNetworkAddress: 'ip地址:端口',
+       ExternalProgramAdPort: 'ip地址:端口',
+       EndTime: 1683263844,
+       Money: 10,
+       BillId: 10000028,
+       Status: -1 },
+     { Id: 27,
+       Name: '映射名称',
+       IntranetAddress: 'ip地址:端口',
+       CreateTime: 1683177444,
+       ExternalNetworkAddress: 'ip地址:端口',
+       ExternalProgramAdPort: 'ip地址:端口',
+       EndTime: 1683263844,
+       Money: 10,
+       BillId: 10000028,
+       Status: -1 },
+     { Id: 28,
+       Name: '映射名称',
+       IntranetAddress: 'ip地址:端口',
+       CreateTime: 1683190609,
+       ExternalNetworkAddress: '192.168.32.130:20003',
+       ExternalProgramAdPort: '192.168.32.130:20002',
+       EndTime: 1683263844,
+       Money: 10,
+       BillId: 10000028,
+       Status: 1 } ] }
+---------------------------------
+收到请求！
+请求体： false
+method POST
+url /cfunc?funcName=RechargeWithCardCode
+path /cfunc
+query [Object: null prototype] { funcName: 'RechargeWithCardCode' }
+bodyJson { CardSecret: 'ZvjzjMZmed7dDpvAPWgCLPIUwcMClkrU',
+  UserId: '10001045' }
+----------------------------
+query [Object: null prototype] { funcName: 'RechargeWithCardCode' }
+bodyJson { CardSecret: 'ZvjzjMZmed7dDpvAPWgCLPIUwcMClkrU',
+  UserId: '10001045' }
+funcName RechargeWithCardCode
+----------------------------
+进入--ExecUI***********************************************************************************************************
+进入RechargeWithCardCode
+退出--ExecUI***********************************************************************************************************
+-------------outJson----------------
+{ Status: { StatusCode: 0, Msg2Client: '成功' },
+  Data: { Balance: 10459, Money: 100 } }
+---------------------------------
+收到请求！
+请求体： false
+method POST
+url /cfunc?funcName=BuyRes
+path /cfunc
+query [Object: null prototype] { funcName: 'BuyRes' }
+bodyJson { Port:
+   [ { LeaseTime: 86400 },
+     { LeaseTime: 86400 },
+     { LeaseTime: 86400 },
+     { LeaseTime: 86400 },
+     { LeaseTime: 86400 } ],
+  UserId: '10001045' }
+----------------------------
+query [Object: null prototype] { funcName: 'BuyRes' }
+bodyJson { Port:
+   [ { LeaseTime: 86400 },
+     { LeaseTime: 86400 },
+     { LeaseTime: 86400 },
+     { LeaseTime: 86400 },
+     { LeaseTime: 86400 } ],
+  UserId: '10001045' }
+funcName BuyRes
+----------------------------
+进入--ExecUI***********************************************************************************************************
+进入BuyRes
+{
+    "LeaseTime": 86400
+}{
+    "LeaseTime": 86400
+}{
+    "LeaseTime": 86400
+}{
+    "LeaseTime": 86400
+}{
+    "LeaseTime": 86400
+}退出--ExecUI***********************************************************************************************************
+-------------outJson----------------
+{ Status: { StatusCode: 0, Msg2Client: '成功' },
+  Data: { ResId: [ 31, 32, 33, 34, 35 ], Balance: 10409 } }
+---------------------------------
+收到请求！
+请求体： false
+method POST
+url /cfunc?funcName=GetResStatus
+path /cfunc
+query [Object: null prototype] { funcName: 'GetResStatus' }
+bodyJson { UserId: '10001045' }
+----------------------------
+query [Object: null prototype] { funcName: 'GetResStatus' }
+bodyJson { UserId: '10001045' }
+funcName GetResStatus
+----------------------------
+进入--ExecUI***********************************************************************************************************
+进入GetResUnitPrice
+退出--ExecUI***********************************************************************************************************
+-------------outJson----------------
+{ Status: { StatusCode: 0, Msg2Client: '成功' },
+  Data: { Total: 12, Use: 0 } }
+---------------------------------
+收到请求！
+请求体： false
+method POST
+url /cfunc?funcName=RestartPortForward
+path /cfunc
+query [Object: null prototype] { funcName: 'RestartPortForward' }
+bodyJson { Id: 21 }
+----------------------------
+query [Object: null prototype] { funcName: 'RestartPortForward' }
+bodyJson { Id: 21 }
+funcName RestartPortForward
+----------------------------
+进入--ExecUI***********************************************************************************************************
+port:20000
+port:20001
+退出--ExecUI***********************************************************************************************************
+-------------outJson----------------
+{ Status: { StatusCode: 0, Msg2Client: '成功' },
+  Data:
+   { NetworkAdPort: '192.168.32.130:20001',
+     ProgramAdPort: '192.168.32.130:20000',
+     Id: 21 } }
+---------------------------------
